@@ -1,0 +1,29 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+    <div class="container recipecards">
+        <div class="row">
+            {% for recipe in recipes %}
+                <div class="col-md-3 col-sm-6 col-12 my-3 shadow-sm">
+                    <div class="card h-100 mb-2">
+                        <img class="card-img-top" style="height:12rem;" src="{{recipe.recipe_image.url}}" alt="">
+                        <div class="card-body">
+                            <div class="card-header">{{recipe.recipe_name}}</div>
+                            <div class="card-text text-muted">
+                                {{recipe.published_on}}
+                            </div>
+                            <a class="main-btn btn" href="">Click to see more</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}
+
+
+
+
+

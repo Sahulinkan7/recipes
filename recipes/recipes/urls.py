@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from django.conf import settings
+from django.conf.urls.static import static
+from app import views
 urlpatterns = [
     path("admin/", admin.site.urls),
-]
+    path("recipehome/",views.home_recipe,name='home'),
+    path("add_recipe/",views.add_recipe,name="add_recipe"),
+]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
